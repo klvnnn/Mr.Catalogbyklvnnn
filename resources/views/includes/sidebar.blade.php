@@ -6,44 +6,44 @@
     <div class="list-group list-group-flush">
         @if (Auth::user()->role->name == 'Admin')
             <a href="{{ route('dashboard.admin') }}" class="list-group-item list-group-item-action text-dark border-top border-bottom">
-                Dashboard
+                <img src="{{ asset('assets/images/icons8-dashboard-64.png') }}" alt="" width="20" height="20"> &nbsp; Dashboard
             </a>
             <a href="{{ route('dashboard.admin-user') }}" class="list-group-item list-group-item-action text-dark border-bottom">
-                User
+                <img src="{{ asset('assets/images/icons8-user-64.png') }}" alt="" width="20" height="20"> &nbsp; User
             </a>
             <a href="" class="list-group-item list-group-item-action text-dark border-bottom">
-                Product
+            <img src="{{ asset('assets/images/icons8-products-64.png') }}" alt="" width="20" height="20"> &nbsp; Product
             </a>
             <a href="" class="list-group-item list-group-item-action text-dark border-bottom">
-                Slider
-            </a>
-            <a href="dashboard.admin-user" class="list-group-item list-group-item-action text-dark border-bottom">
-                Add User
+                <img src="{{ asset('assets/images/icons8-image-64.png') }}" alt="" width="20" height="20"> &nbsp; Slider
             </a>
             <a href="" class="list-group-item list-group-item-action text-dark border-bottom">
-                Add Product
+                <img src="{{ asset('assets/images/icons8-plus-64.png') }}" alt="" width="20" height="20"> &nbsp; Add User
             </a>
             <a href="" class="list-group-item list-group-item-action text-dark border-bottom">
-                Add Slider
+                <img src="{{ asset('assets/images/icons8-plus-64.png') }}" alt="" width="20" height="20"> &nbsp; Add Product
+            </a>
+            <a href="" class="list-group-item list-group-item-action text-dark border-bottom">
+                <img src="{{ asset('assets/images/icons8-plus-64.png') }}" alt="" width="20" height="20"> &nbsp; Add Slider
             </a>
         @endif
         @if (Auth::user()->role->name == 'Staff')
             <a href="{{ route('dashboard.user') }}" class="list-group-item list-group-item-action text-dark border-top border-bottom">
-                User
+                <img src="{{ asset('assets/images/icons8-user-64.png') }}" alt="" width="20" height="20"> &nbsp; User
             </a>
             <a href="" class="list-group-item list-group-item-action text-dark border-bottom">
-                Product
+                <img src="{{ asset('assets/images/icons8-products-64.png') }}" alt="" width="20" height="20"> &nbsp; Product
             </a>
             <a href="" class="list-group-item list-group-item-action text-dark border-bottom">
-                Slider
+                <img src="{{ asset('assets/images/icons8-image-64.png') }}" alt="" width="20" height="20"> &nbsp; Slider
             </a>
         @endif
         @if (Auth::user()->role->name == 'User')
             <a href="{{ route('dashboard.user') }}" class="list-group-item list-group-item-action text-dark border-top border-bottom">
-                Your Item
+                <img src="{{ asset('assets/images/icons8-item-64.png') }}" alt="" width="20" height="20"> &nbsp; Your Item
             </a>
             <a href="" class="list-group-item list-group-item-action text-dark  border-bottom">
-                Settings
+                <img src="{{ asset('assets/images/icons8-setting-64.png') }}" alt="" width="20" height="20"> &nbsp; Settings
             </a>
         @endif
         <form action="logout" method="POST">
