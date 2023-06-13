@@ -39,7 +39,7 @@ Route::get('/contact', function () {
     return view('landing.contact');
 });
 Route::get('/single-product', function () {
-    return view('landing.single-product');
+    return view('landing.products-details');
 });
 // /End
 // ?FIXX
@@ -55,14 +55,14 @@ Route::post('/register', [RegisterController::class, 'store'] )->name('register.
 
 Route::middleware('auth')->group(function(){
     //Logout
-    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::post('/dashboard/logout', [LoginController::class, 'logout'])->name('logout');
 
     //Dashboard Admin
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard.admin');
     //Dashboard Staff
-    Route::get('/dashboard-user', [UserController::class, 'index'])->name('dashboard.user');
+    Route::get('/dashboard/staff', [UserController::class, 'index'])->name('dashboard.staff');
     //Dashboard User
-    Route::get('/dashboard-setting', [SettingController::class, 'index'])->name('dashboard.setting');
+    Route::get('/dashboard/user', [SettingController::class, 'index'])->name('dashboard.user');
 });
 // ?END
 // !Route CRUD Sementara --- Pending!!!

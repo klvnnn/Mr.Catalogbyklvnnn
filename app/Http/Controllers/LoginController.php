@@ -35,7 +35,7 @@ class LoginController extends Controller
             }
             else{
             //if admin || staff route dashboard
-                return redirect()->route('dashboard')->with('Success','Login berhasil');
+                return redirect()->route('dashboard.admin')->with('Success','Login berhasil');
             }   
         }
         return back()->with('error', 'Email atau Password salah');

@@ -13,7 +13,7 @@ class SettingController extends Controller
      */
     public function index()
     {
-        return view('dashboard.user.setting');
+        return view('dashboard.user.item');
     }
 
     /**

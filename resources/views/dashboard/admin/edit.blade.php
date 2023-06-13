@@ -1,65 +1,58 @@
-@extends('master')
-@section('isi')
-<main id="main">
-    <section id="details" class="about">
-        <div class="container" data-aos="fade-up">
-            <br> 
-            <h5><b>Detail User</b></h5>
-            <br>
-            <div class="row d-flex justify-content-center h-100">
-            <div class="col col-md-9 col-lg-7 col-xl-5">
-                <div class="card" style="border-radius: 15px;">
-                <div class="card-body">
-                    <div class="d-flex text-black">
-                    <div class="flex-shrink-0 img-fluid" style="width: 180px; border: radius 10px;">
-                    <img src="" alt="" width="250px" height="300px">
+@extends('dashboard.master')
+@section('content')
+    <div class="dashboard-heading">
+        <h2 class="dashboard-title">Edit Users</h2>
+        <p class="dashboard-subtitle">Look what you have made today!</p>
+    </div>
+    <div class="dashboard-content">
+        <div class="row">
+            <div class="col-12">
+                <form action="" method="POST">
+                    @method('put')
+                    @csrf
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Nama Lengkap</label>
+                                        <input type="text" name="name" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" v-if="is_store_open">
+                                        <label>Role</label>
+                                        <select name="role" class="form-control">
+                                            <option value="" disabled>Admin</option>
+                                            <option value="" disabled>Staff</option>
+                                            <option value="" disabled>User</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" v-if="is_store_open">
+                                        <label>Password</label>
+                                        <input type="password" name="password" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" v-if="is_store_open">
+                                        <label>Email</label>
+                                        <input type="email" name="email" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-right">
+                                    <button type="submit" class="btn btn-success">
+                                        Save Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <form action="/update-user" class="form-horizontal row-fluid ms-5 ps-5" method="POST">
-                        @method('put')
-                        @csrf
-                        <input type="hidden" class="form-control" value="{{ $user->id }}" name="id">
-                        <div class="control-group">
-                            <b><label class="form-label">Nama:</label></b>
-                            <div class="controls">
-                                <input type="text" name="name" class="form-control form Button-Up" value="{{ $user->name }}" required >
-                            </div>
-                        </div>
-                        <label class="form-label"><b>Role</b></label>
-                            <select class="form-select" aria-label="Default select example" name="role">
-                                <option disabled="" selected=""></option>
-                                <option value="" disabled>Admin</option>
-                                <option value="" disabled>Staff</option>
-                            </select>
-                        <div class="control-group">
-                            <b><label class="form-label">Email:</label></b>
-                            <div class="controls">
-                                <input type="text" name="email" class="form-control form Button-Up" value="{{ $user->name }}" required >
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <b><label class="form-label">Phone:</label></b>
-                            <div class="controls">
-                                <input type="text" name="phone" class="form-control form Button-Up" value="{{ $user->name }}" required >
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <b><label class="form-label">Address:</label></b>
-                            <div class="controls">
-                                <input type="text" name="address" class="form-control form Button-Up" value="{{ $user->name }}" required >
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="controls mt-3 d-flex justify-content-center">
-                                <button type="submit" class="btn btn-primary">Update User</button>
-                            </div>
-                        </div>
-                    </form>
-                    </div>
-                </div>
-                </div>
-            </div>
+                </form>
             </div>
         </div>
-    </section>
-</main>
+    </div>
 @endsection

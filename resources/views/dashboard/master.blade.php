@@ -10,7 +10,34 @@
     <link rel="icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
 </head>
 <body>
-    @yield('navbar')
+    <div class="page-dashboard">
+        <div class="d-flex" id="wrapper">
+            @include('includes.sidebar')
+            <div id="page-content-wrapper">
+                <nav class="navbar navbar-expand-lg navbar-light navbar-store fixed-top">
+                    <div class="container-fluid">
+                        <div class="collapse navbar-collapse" id="navbarSpportedContent">
+                            <!-- Dekstop Menu -->
+                            <ul class="navbar-nav d-none d-lg-flex ml-auto">
+                                <li class="nav-item dropdown">
+                                    <a href="#" class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown">
+                                        <img src="{{ asset('assets/images/user.png') }}" alt=""
+                                            class="rounded-circle mr-2 profile-picture" />
+                                        <b style="color: black"> Hi, {{ Auth::user()->role->name }} </b>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="section-content sction-dashboard-home">
+                    <div class="container-fluid">
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('assets/js/jquery-2.1.0.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
