@@ -7,14 +7,13 @@
                 <div class="col-lg-12">
                     <div class="inner-content">
                         <h2>Contact Us</h2>
-                        <span>Awesome, clean &amp; creative HTML5 Template</span>
+                        <span>We are welcome!</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- ***** Main Banner Area End ***** -->
-
     <!-- ***** Contact Area Starts ***** -->
     <div class="contact-us">
         <div class="container">

@@ -13,8 +13,16 @@ class DashboardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('dashboard.admin.dashboard');
+    {   
+        if (Auth::user()->role->name == 'Admin'){
+            return view('dashboard.admin.dashboard');
+        }
+        if (Auth::user()->role->name == 'Staff'){
+            return view('dashboard.staff.user');
+        }
+        if (Auth::user()->role->name == 'User'){
+            return view('dashboard.user.item');
+        }
     }
 
     /**

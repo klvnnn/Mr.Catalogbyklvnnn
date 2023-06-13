@@ -42,7 +42,9 @@ Route::get('/single-product', function () {
     return view('landing.products-details');
 });
 // /End
-// ?FIXX
+
+
+// *FIXX
 Route::get('/', [LandingController::class, 'index'])->name('landing.index');
 
 //Login
@@ -53,18 +55,23 @@ Route::post('/login', [LoginController::class, 'authenticate'])->name('login.aut
 Route::get('/register', [RegisterController::class, 'index'] )->name('register');
 Route::post('/register', [RegisterController::class, 'store'] )->name('register.store');
 
+// --middleware auth
 Route::middleware('auth')->group(function(){
     //Logout
     Route::post('/dashboard/logout', [LoginController::class, 'logout'])->name('logout');
 
     //Dashboard Admin
     Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard.admin');
+    Route::get('/dashboard/admin-user', [UserController::class, 'index'])->name('dashboard.admin-user');
     //Dashboard Staff
-    Route::get('/dashboard/staff', [UserController::class, 'index'])->name('dashboard.staff');
+    Route::get('/dashboard/staff', [DashboardController::class, 'index'])->name('dashboard.staff');
+    Route::get('/dashboard/staff-user', [UserControllerController::class, 'index'])->name('dashboard.staff-user');
     //Dashboard User
-    Route::get('/dashboard/user', [SettingController::class, 'index'])->name('dashboard.user');
+    Route::get('/dashboard/user', [DashboardController::class, 'index'])->name('dashboard.user');
 });
-// ?END
+// *END
+
+
 // !Route CRUD Sementara --- Pending!!!
 //CRUD user
 // Route::get('/user', [UserController::class, 'index']);

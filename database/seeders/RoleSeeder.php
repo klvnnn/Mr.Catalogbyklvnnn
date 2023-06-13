@@ -15,17 +15,20 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $roles = [
+        Role::create(
             [
                 'name' => 'Admin',
             ],
+        );
+        Role::create(
             [
                 'name' => 'Staff',
             ],
+        );
+        Role::create(
             [
                 'name' => 'User',
             ],
-        ];
-        Role::insert($roles);
+        );
     }
 }

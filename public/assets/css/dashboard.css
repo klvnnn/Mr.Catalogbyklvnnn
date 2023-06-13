@@ -5864,7 +5864,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .list-group-item-action {
   width: 100%;
-  color: #495057;
+  color: #212529;
   text-align: inherit;
 }
 
@@ -5907,7 +5907,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .list-group-item.active {
   z-index: 2;
-  color: #fff;
+  color: #1b1e21;
   background-color: #007bff;
   border-color: #007bff;
 }

@@ -5,46 +5,44 @@
     </div>
     <div class="list-group list-group-flush">
         @if (Auth::user()->role->name == 'Admin')
-            <a href="{{ route('dashboard.admin') }}" class="list-group-item list-group-item-action active">
+            <a href="{{ route('dashboard.admin') }}" class="list-group-item list-group-item-action text-dark border-top border-bottom">
                 Dashboard
             </a>
-            <a href="" class="list-group-item list-group-item-action">
+            <a href="{{ route('dashboard.admin-user') }}" class="list-group-item list-group-item-action text-dark border-bottom">
                 User
             </a>
-            <a href="" class="list-group-item list-group-item-action">
+            <a href="" class="list-group-item list-group-item-action text-dark border-bottom">
                 Product
             </a>
-            <a href="" class="list-group-item list-group-item-action">
+            <a href="" class="list-group-item list-group-item-action text-dark border-bottom">
                 Slider
             </a>
-        @endif
-        @if (Auth::user()->role->name == 'Admin')
-            <a href="" class="list-group-item list-group-item-action">
+            <a href="dashboard.admin-user" class="list-group-item list-group-item-action text-dark border-bottom">
                 Add User
             </a>
-            <a href="" class="list-group-item list-group-item-action">
+            <a href="" class="list-group-item list-group-item-action text-dark border-bottom">
                 Add Product
             </a>
-            <a href="" class="list-group-item list-group-item-action">
+            <a href="" class="list-group-item list-group-item-action text-dark border-bottom">
                 Add Slider
             </a>
         @endif
         @if (Auth::user()->role->name == 'Staff')
-            <a href="{{ route('dashboard.staff.user') }}" class="list-group-item list-group-item-action active">
+            <a href="{{ route('dashboard.user') }}" class="list-group-item list-group-item-action text-dark border-top border-bottom">
                 User
             </a>
-            <a href="" class="list-group-item list-group-item-action">
+            <a href="" class="list-group-item list-group-item-action text-dark border-bottom">
                 Product
             </a>
-            <a href="" class="list-group-item list-group-item-action">
+            <a href="" class="list-group-item list-group-item-action text-dark border-bottom">
                 Slider
             </a>
         @endif
         @if (Auth::user()->role->name == 'User')
-            <a href="{{ route('dashboard.user') }}" class="list-group-item list-group-item-action active">
+            <a href="{{ route('dashboard.user') }}" class="list-group-item list-group-item-action text-dark border-top border-bottom">
                 Your Item
             </a>
-            <a href="" class="list-group-item list-group-item-action">
+            <a href="" class="list-group-item list-group-item-action text-dark  border-bottom">
                 Settings
             </a>
         @endif
