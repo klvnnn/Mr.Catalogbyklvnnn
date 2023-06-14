@@ -14,7 +14,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        
+        $roles = Role::all();
+        return view('role.role', compact('roles'));
     }
 
     /**
@@ -24,7 +25,8 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        // tampilkan halaman create
+        return view('role.create');
     }
 
     /**
@@ -35,7 +37,13 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // insert data ke table roles
+        $role = Role::create([
+            'name' => $request->name,
+        ]);
+
+        // alihkan halaman ke halaman roles
+        return redirect()->route('role.role');
     }
 
     /**
@@ -57,7 +65,11 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        // ambil data role berdasarkan id
+        $role = Role::find($id);
+
+        // tampilkan view edit dan passing data role
+        return view('role.edit', compact('role'));
     }
 
     /**
@@ -69,7 +81,16 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // ambil data role berdasarkan id
+        $role = Role::find($id);
+
+        // update data role
+        $role->update([
+            'name' => $request->name,
+        ]);
+
+        // alihkan halaman ke halaman roles
+        return redirect()->route('role.role');
     }
 
     /**
@@ -80,6 +101,13 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // ambil data role berdasarkan id
+        $role = Role::find($id);
+
+        // hapus data role
+        $role->delete();
+
+        // alihkan halaman ke halaman roles
+        return redirect()->route('role.role');
     }
 }

@@ -40,8 +40,8 @@
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="/" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#men" >men</a></li>
-                            <li class="scroll-to-section"><a href="#women" >women</a></li>
+                            <li class="scroll-to-section"><a href="#male" >male</a></li>
+                            <li class="scroll-to-section"><a href="#female" >female</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">Pages</a>
                                 <ul>
@@ -53,7 +53,7 @@
                             </li>
                             <li class="scroll-to-section"><a href="#explore">Explore</a></li>
                             @auth
-                            <li class="scroll-to-section"><a href="{{ route('dashboard.user') }}">Dashboard</a></li>
+                            <li class="scroll-to-section"><a href="{{ route('dashboard') }}">Dashboard</a></li>
                             @endauth
                             @guest
                             <li class="scroll-to-section"><a href="{{ route('login') }}">login</a></li>

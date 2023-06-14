@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -15,12 +17,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->role->name == 'Admin'){
-            return view('dashboard.admin.user');
-        }
-        if (Auth::user()->role->name == 'Staff'){
-            return view('dashboard.staff.user');
-        }
+        // Ambil semua data user dari database
+        $users = User::with('role')->get();
+
+        // Tampilkan halaman index
+        return view('user.user', compact('users'));
     }
 
     /**
@@ -30,7 +31,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('dashboard.add-user');
+        $roles = Role::all();
+        return view('user.create', compact('roles'));
     }
 
     /**
@@ -41,25 +43,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::create([
-            'name' =>$request->name,
-            'password' =>$request->password,
-            'email' =>$request->email,
-            'phone' =>$request->phone,
-            'address' =>$request->address,
-        ]);
-        return redirect('user');
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $user = User::create([
+            'name' => $request->name,
+            'role_id' => $request->role,
+            'password' => Hash::make('password'),
+            'email' => $request->email,
+        ]);
+
+        return redirect()->route('user.user');
     }
 
     /**
@@ -70,10 +62,14 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::where('id',$id)->first();
+        // Ambil data user berdasarkan id
+        $user = User::find($id);
 
-        // passing data ke view
-        return view('dashboard.edit', compact('user'));
+        // Ambil data roles dari database
+        $roles = Role::all();
+
+        // Tampilkan halaman edit dengan passing data user dan roles
+        return view('user.edit', compact('user', 'roles'));
     }
 
     /**
@@ -83,20 +79,20 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $user = User::find($request->id)->update([
-            'name' =>$request->name,
-            'email' =>$request->email,
-            'phone' =>$request->phone,
-            'address' =>$request->address,
-        ]);
-        return redirect('user');
-    }
+        // Ambil data user berdasarkan id
+        $user = User::find($id);
 
-    public function delete($id){
-        $user = User::find($id)->delete();
-        return redirect('user');
+        // Update data user
+        $user->update([
+            'name' => $request->name,
+            'role_id' => $request->role,
+            'email' => $request->email,
+        ]);
+
+        // Redirect ke halaman user.index
+        return redirect()->route('user.user');
     }
 
     /**
@@ -107,6 +103,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Ambil data user berdasarkan id
+        $user = User::find($id);
+
+        // Hapus data user
+        $user->delete();
+
+        // Redirect ke halaman user.index
+        return redirect()->route('user.user');
     }
 }

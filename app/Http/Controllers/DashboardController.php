@@ -14,15 +14,21 @@ class DashboardController extends Controller
      */
     public function index()
     {   
-        if (Auth::user()->role->name == 'Admin'){
-            return view('dashboard.admin.dashboard');
-        }
-        if (Auth::user()->role->name == 'Staff'){
-            return view('dashboard.staff.user');
-        }
-        if (Auth::user()->role->name == 'User'){
+        if (Auth::user()->role->name == 'User') {
             return view('dashboard.user.item');
+        } else {
+            return view('dashboard.dashboard');
         }
+
+        // if (Auth::user()->role->name == 'Admin'){
+        //     return view('dashboard.admin.dashboard');
+        // }
+        // if (Auth::user()->role->name == 'Staff'){
+        //     return view('dashboard.staff.user');
+        // }
+        // if (Auth::user()->role->name == 'User'){
+        //     return view('dashboard.user.item');
+        // }
     }
 
     /**

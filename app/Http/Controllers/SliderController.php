@@ -16,8 +16,11 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $slider = slider::all();
-        return view('landing');
+        // load data dari table sliders
+        $sliders = Slider::all();
+
+        // passing data sliders ke view slider.index
+        return view('slider.slider', compact('sliders'));
     }
 
     /**
@@ -37,14 +40,14 @@ class SliderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {            
-        $gambar =$request->image;
+    {
+        $gambar = $request->image;
         $slug = Str::slug($gambar->getClientOriginalName());
-        $images_new = time().'_'.$slug;
+        $images_new = time() . '_' . $slug;
         $gambar->move('uploads/slider/', $images_new);
 
         $slider = new Slider;
-        $slider -> image = 'uploads/slider/'.$images_new;
+        $slider->image = 'uploads/slider/' . $images_new;
         $slider->save();
 
         return redirect('/');

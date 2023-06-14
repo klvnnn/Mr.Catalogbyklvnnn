@@ -10,7 +10,7 @@
                             <h4>Welcome to Mr Catalog</h4>
                             <span>Ready to fit Your Outfit</span>
                             <div class="main-border-button">
-                                <a href="#men">Belanja Sekarang</a>
+                                <a href="#male">Belanja Sekarang</a>
                             </div>
                         </div>
                         <img src="{{ asset('assets/images/left-banner-image.jpg') }}" alt="">
@@ -71,12 +71,12 @@
     </div>
 </div>
     <!-- ***** Men Area Starts ***** -->
-    <section class="section" id="men">
+    <section class="section" id="male">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="section-heading">
-                        <h2>Men's Catalog</h2>
+                        <h2>Male Catalog</h2>
                         <span>Choose Your Outfit Today</span>
                     </div>
                 </div>
@@ -188,12 +188,12 @@
     </section>
     <!-- ***** Men Area End ***** -->
     <!-- ***** Women Area Starts ***** -->
-    <section class="section" id="women">
+    <section class="section" id="female">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="section-heading">
-                        <h2>Women's Catalog</h2>
+                        <h2>Female Catalog</h2>
                         <span>Choose Your Outfit Today</span>
                     </div>
                 </div>

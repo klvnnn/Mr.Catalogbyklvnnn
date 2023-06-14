@@ -15,7 +15,7 @@ class Products extends Model
         'price',
         'sale_price',
         'brands',
-        'image'
+        'image',
     ];
 
     public function category()

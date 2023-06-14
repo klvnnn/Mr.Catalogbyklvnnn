@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brands;
+use App\Models\Categories;
 use App\Models\Product;
 use App\Models\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 
 class ProductController extends Controller
@@ -16,10 +19,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data = Http::get('http://my_store.test/api/product');
-        // return $data;
-        // $product = Product::all();
-        return view('product', compact('data'));
+        $products = Products::with('category')->get();
+
+        return view('products.products', compact('products'));
     }
 
     /**
@@ -29,9 +31,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('dashboard.add-product');
-    }
+        $brands = Brands::all();
+        $categories = Categories::all();
 
+        return view('products.create', compact('brands', 'categories'));
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -41,23 +45,15 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = Products::create([
-            'name' =>$request->name,
-            'description' =>$request->description,
-            'price' =>$request->price,
+            'name' => $request->name,
+            'category_id' => $request->category,
+            'brands' => $request->brands,
+            'price' => $request->price,
+            'sale_price' => $request->sale_price,
+            'image' => '1.jpg',
         ]);
 
-        return redirect('product');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect()->route('products.products');
     }
 
     /**
@@ -68,10 +64,15 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Products::where('id',$id)->first();
+        // ambil data product berdasarkan id
+        $products = Products::where('id', $id)->with('category')->first();
 
-        // passing data ke view
-        return view('dashboard.edit-product', compact('product'));
+        // ambil data brand dan category sebagai isian di pilihan (select)
+        $brands = Brands::all();
+        $categories = Categories::all();
+
+        // tampilkan view edit dan passing data product
+        return view('products.edit', compact('products', 'brands', 'categories'));
     }
 
     /**
@@ -81,18 +82,17 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $product = Products::find($request->id)->update([
-            'name' =>$request->name,
-            'description' =>$request->description,
+        Products::where('id', $id)->update([
+            'category_id' => $request->category,
+            'name' => $request->name,
+            'price' => $request->price,
+            'sale_price' => $request->sale_price,
+            'brands' => $request->brands,
         ]);
-        return redirect('product');
-    }
 
-    public function delete($id){
-        $product = Products::find($id)->delete();
-        return redirect('product');
+        return redirect()->route('products.products');
     }
 
     /**
@@ -103,6 +103,13 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // ambil data product berdasarkan id
+        $product = Products::find($id);
+
+        // hapus data product
+        $product->delete();
+
+        // redirect ke halaman product.index
+        return redirect()->route('products.products');
     }
 }

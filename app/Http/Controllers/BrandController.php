@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categories;
+use App\Models\Brands;
 use Illuminate\Http\Request;
 
-class CategoriesController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,11 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Categories::all();
-        return view('categories.category', compact('categories'));
+        // load data dari table brands
+        $brands = Brands::all();
+
+        // passing data brands ke view brand.index
+        return view('brands.brands', compact('brands'));
     }
 
     /**
@@ -25,7 +28,8 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        // load view create.blade.php
+        return view('brands.create');
     }
 
     /**
@@ -36,24 +40,13 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        // masukkan data ke database
-        $category = Categories::create([
-            'name' => $request->name
+        // insert data ke table brands
+        $brands = Brands::create([
+            'name' => $request->name,
         ]);
 
-        // redirect ke halaman category.index
-        return redirect()->route('categories.category');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        // alihkan halaman ke halaman brands
+        return redirect()->route('brands.brands');
     }
 
     /**
@@ -64,11 +57,12 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        // ambil data category berdasarkan id
-        $categories = Categories::find($id);
+        // cari data berdasarkan id menggunakan find()
+        // find() merupakan fungsi eloquent untuk mencari data berdasarkan primary key
+        $brands = Brands::find($id);
 
-        // tampilkan view edit dan passing data category
-        return view('categories.edit', compact('categories'));
+        // load view edit.blade.php dan passing data brand
+        return view('brands.edit', compact('brands'));
     }
 
     /**
@@ -80,16 +74,13 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // ambil data category berdasarkan id
-        $categories = Categories::find($id);
-
-        // update data category
-        $categories->update([
-            'name' => $request->name
+        // update data brands
+        Brands::where('id', $id)->update([
+            'name' => $request->name,
         ]);
 
-        // redirect ke halaman category.index
-        return redirect()->route('categories.category');
+        // alihkan halaman ke halaman brands
+        return redirect()->route('brands.brands');
     }
 
     /**
@@ -101,12 +92,12 @@ class CategoriesController extends Controller
     public function destroy($id)
     {
         // ambil data category berdasarkan id
-        $categories = Categories::find($id);
+        $brand = Brands::find($id);
 
         // hapus data category
-        $categories->delete();
+        $brand->delete();
 
-        // redirect ke halaman category.index
-        return redirect()->route('categories.category');
+        // alihkan halaman ke halaman brands
+        return redirect()->route('brands.brands');
     }
 }

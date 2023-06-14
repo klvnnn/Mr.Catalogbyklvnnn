@@ -30,13 +30,9 @@ class LoginController extends Controller
             if (Auth::user()->role->name == 'User'){
                 return redirect()->route('landing.index')->with('Success','Login berhasil');
             }
-            if (Auth::user()->role->name == 'Staff'){
-                return redirect()->route('dashboard.user')->with('Success','Login berhasil');
-            }
             else{
-            //if admin || staff route dashboard
-                return redirect()->route('dashboard.admin')->with('Success','Login berhasil');
-            }   
+                return view('dashboard.dashboard')->with('Success','Login berhasil');
+            }  
         }
         return back()->with('error', 'Email atau Password salah');
 
