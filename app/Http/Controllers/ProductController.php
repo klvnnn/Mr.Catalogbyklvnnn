@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Brands;
 use App\Models\Categories;
-use App\Models\Product;
 use App\Models\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -44,18 +44,40 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        // ubah nama file
+        $imageName = time() . '.' . $request->image->extension();
+
+        // simpan file ke folder public/product
+        Storage::putFileAs('public/product', $request->image, $imageName);
         $product = Products::create([
             'name' => $request->name,
             'category_id' => $request->category,
             'brands' => $request->brands,
             'price' => $request->price,
             'sale_price' => $request->sale_price,
-            'image' => '1.jpg',
+            'image' =>  $imageName,
         ]);
 
         return redirect()->route('products.products');
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $products = Products::where('id', $id)->with('category')->first();
+        
+        if ($products) {
+            return view('landing.products-details', compact('products'));
+        } else {
+            abort(404);
+        }
+
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -84,13 +106,39 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Products::where('id', $id)->update([
-            'category_id' => $request->category,
-            'name' => $request->name,
-            'price' => $request->price,
-            'sale_price' => $request->sale_price,
-            'brands' => $request->brands,
-        ]);
+        // cek jika user mengupload gambar di form
+        if ($request->hasFile('image')) {
+            // ambil nama file gambar lama dari database
+            $old_image = Products::find($id)->image;
+
+            // hapus file gambar lama dari folder slider
+            Storage::delete('public/product/' . $old_image);
+
+            // ubah nama file
+            $imageName = time() . '.' . $request->image->extension();
+
+            // simpan file ke folder public/product
+            Storage::putFileAs('public/product', $request->image, $imageName);
+
+            // update data product
+            Products::where('id', $id)->update([
+                'category_id' => $request->category,
+                'name' => $request->name,
+                'price' => $request->price,
+                'sale_price' => $request->sale_price,
+                'brands' => $request->brand,
+                'image' => $imageName,
+            ]);
+        } else {
+            // update data product tanpa menyertakan file gambar
+            Products::where('id', $id)->update([
+                'category_id' => $request->category,
+                'name' => $request->name,
+                'price' => $request->price,
+                'sale_price' => $request->sale_price,
+                'brands' => $request->brand,
+            ]);
+        }
 
         return redirect()->route('products.products');
     }

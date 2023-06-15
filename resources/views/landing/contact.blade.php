@@ -29,7 +29,7 @@
                 <div class="col-lg-6">
                     <div class="section-heading">
                         <h2>Say Hello. Don't Be Shy!</h2>
-                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                        <span>Details to details is what makes Mr.Catalog</span>
                     </div>
                     <form id="contact" action="" method="post">
                         <div class="row">

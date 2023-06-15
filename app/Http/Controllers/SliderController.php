@@ -6,6 +6,7 @@ use App\Models\Slider;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SliderController extends Controller
 {
@@ -30,7 +31,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('dashboard.add-slider');
+        return view('slider.create');
     }
 
     /**
@@ -41,16 +42,20 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        $gambar = $request->image;
-        $slug = Str::slug($gambar->getClientOriginalName());
-        $images_new = time() . '_' . $slug;
-        $gambar->move('uploads/slider/', $images_new);
+        // ubah nama file gambar dengan angka random
+        $imageName = time() . '.' . $request->image->extension(); // 1685433155.jpg
 
-        $slider = new Slider;
-        $slider->image = 'uploads/slider/' . $images_new;
-        $slider->save();
+        // upload file gambar ke folder slider
+        Storage::putFileAs('public/slider', $request->file('image'), $imageName);
 
-        return redirect('/');
+        // insert data ke table sliders
+        $slider = Slider::create([
+            'title' => $request->title,
+            'caption' => $request->caption,
+            'image' => $imageName,
+        ]);
+
+        return redirect()->route('slider.slider');
     }
 
     /**
@@ -72,7 +77,12 @@ class SliderController extends Controller
      */
     public function edit($id)
     {
-        //
+        // cari data berdasarkan id menggunakan find()
+        // find() merupakan fungsi eloquent untuk mencari data berdasarkan primary key
+        $sliders = Slider::find($id);
+
+        // load view edit.blade.php dan passing data slider
+        return view('slider.edit', compact('sliders'));
     }
 
     /**
@@ -84,7 +94,39 @@ class SliderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // cek jika user mengupload gambar di form
+        if ($request->hasFile('image')) {
+            // ambil nama file gambar lama dari database
+            $old_image = Slider::find($id)->image;
+
+            // hapus file gambar lama dari folder slider
+            Storage::delete('public/slider/' . $old_image);
+
+            // FILE BARU //
+            // ubah nama file gambar baru dengan angka random
+            $imageName = time() . '.' . $request->image->extension();
+
+            // upload file gambar ke folder slider
+            Storage::putFileAs('public/slider', $request->file('image'), $imageName);
+
+            // update data sliders
+            Slider::where('id', $id)->update([
+                'title' => $request->title,
+                'caption' => $request->caption,
+                'image' => $imageName,
+            ]);
+        } else {
+            // jika user tidak mengupload gambar
+            // update data sliders hnaya untuk title dan caption
+            Slider::where('id', $id)->update([
+                'title' => $request->title,
+                'caption' => $request->caption,
+            ]);
+        }
+
+
+        // alihkan halaman ke halaman sliders
+        return redirect()->route('slider.slider');
     }
 
     /**
@@ -95,6 +137,17 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // cari data berdasarkan id menggunakan find()
+        // find() merupakan fungsi eloquent untuk mencari data berdasarkan primary key
+        $slider = Slider::find($id);
+
+        // hapus file gambar dari folder slider
+        Storage::delete('public/slider/' . $slider->image);
+
+        // hapus data dari table sliders
+        $slider->delete();
+
+        // alihkan halaman ke halaman sliders
+        return redirect()->route('slider.slider');
     }
 }

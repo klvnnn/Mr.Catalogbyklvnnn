@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brands;
+use App\Models\Categories;
+use App\Models\Products;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
@@ -11,11 +15,45 @@ class LandingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('landing.index');
+        // mengambil data slider
+        $sliders = Slider::all();
+
+        return view('landing.index', compact('sliders'));
     }
 
+    public function products(Request $request)
+    {
+        // mengambil data category
+        $categories = Categories::all();
+
+        if ($request->category) {
+            $products = Products::with('category')->whereHas('category', function ($query) use ($request) {
+                $query->where('name', $request->category);
+            })->get();
+        } else if ($request->min && $request->max) {
+            $products = Products::where('sale_price', '>=', $request->min)->where('sale_price', '<=', $request->max)->get();
+        } else {
+            // mengambil 8 data produk secara acak
+            $products = Products::inRandomOrder()->limit(10)->get();
+        }
+
+        return view('landing.products', compact('products', 'categories'));
+    }
+
+    public function detail($id)
+    {
+        // ambil data product berdasarkan id
+        $products = Products::where('id', $id)->with('category')->first();
+
+        // ambil data brand dan category sebagai isian di pilihan (select)
+        $brands = Brands::all();
+        $categories = Categories::all();
+
+        // tampilkan view edit dan passing data product
+        return view('landing.product-details', compact('products', 'brands', 'categories'));
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -40,14 +40,14 @@
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="/" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#male" >male</a></li>
-                            <li class="scroll-to-section"><a href="#female" >female</a></li>
+                            @yield('category')
+                            {{-- <li class="scroll-to-section"><a href="#male" >male</a></li>
+                            <li class="scroll-to-section"><a href="#female" >female</a></li> --}}
                             <li class="submenu">
                                 <a href="javascript:;">Pages</a>
                                 <ul>
                                     <li><a href="about">About Us</a></li>
-                                    <li><a href="products">Products</a></li>
-                                    <li><a href="single-product">Single Product</a></li>
+                                    <li><a href="{{ route('landing.products') }}">Products</a></li>
                                     <li><a href="contact">Contact Us</a></li>
                                 </ul>
                             </li>
@@ -82,7 +82,7 @@
                         <h2>Explore Our Products</h2>
                         <span>See what product's you like in Mr Catalog</span>
                         <div class="main-border-button">
-                            <a href="products">Lihat lebih lanjut</a>
+                            <a href="products">See More</a>
                         </div>
                     </div>
                 </div>

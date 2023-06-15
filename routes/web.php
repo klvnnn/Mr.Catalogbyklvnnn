@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductDetailsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SettingController;
@@ -29,25 +30,17 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-
-// /Route LANDING Sementara --- Process!!!
 Route::get('/about', function () {
     return view('landing.about');
-});
-Route::get('/products', function () {
-    return view('landing.products');
 });
 Route::get('/contact', function () {
     return view('landing.contact');
 });
-Route::get('/single-product', function () {
-    return view('landing.products-details');
-});
-// /End
 
-
-// *FIXX
+//Landing
 Route::get('/', [LandingController::class, 'index'])->name('landing.index');
+Route::get('/products', [LandingController::class, 'products'])->name('landing.products');
+Route::get('/products-details/{id}', [ProductController::class, 'show'])->name('product.show');
 
 //Login
 Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -65,16 +58,9 @@ Route::middleware('auth')->group(function () {
     //Dashboardd
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+
     //ADMIN
     Route::middleware('role:Admin')->group(function () {
-        //CRUD User
-        Route::get('/dashboard-user', [UserController::class, 'index'])->name('user.user');
-        Route::get('/dashboard-user-create', [UserController::class, 'create'])->name('user.create');
-        Route::post('/dashboard-user', [UserController::class, 'store'])->name('user.store');
-        Route::get('/dashboard-user-edit/{id}', [UserController::class, 'edit'])->name('user.edit');
-        Route::put('/dashboard-user/{id}', [UserController::class, 'update'])->name('user.update');
-        Route::delete('/dashboard-user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
-
         //CRUD Role
         Route::get('/dashboard-role', [RoleController::class, 'index'])->name('role.role');
         Route::get('/dahboard-role-create', [RoleController::class, 'create'])->name('role.create');
@@ -94,6 +80,13 @@ Route::middleware('auth')->group(function () {
 
     //ADMIN & STAFF
     Route::middleware('role:Admin|Staff')->group(function () {
+        //CRUD User
+        Route::get('/dashboard-user', [UserController::class, 'index'])->name('user.user');
+        Route::get('/dashboard-user-create', [UserController::class, 'create'])->name('user.create');
+        Route::post('/dashboard-user', [UserController::class, 'store'])->name('user.store');
+        Route::get('/dashboard-user-edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+        Route::put('/dashboard-user/{id}', [UserController::class, 'update'])->name('user.update');
+        Route::delete('/dashboard-user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
         // Category
         Route::get('/dashboard-categories', [CategoriesController::class, 'index'])->name('categories.category');
         Route::get('/dashboard-categories-create', [CategoriesController::class, 'create'])->name('categories.create');
@@ -119,13 +112,4 @@ Route::middleware('auth')->group(function () {
         Route::delete('/dashboard-brands/{id}', [BrandController::class, 'destroy'])->name('brands.destroy'); // route untuk menghapus data
 
     });
-    // //Dashboard Admin
-    // Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard.admin');
-    // Route::get('/dashboard/admin-user', [UserController::class, 'index'])->name('dashboard.admin-user');
-    // //Dashboard Staff
-    // Route::get('/dashboard/staff', [DashboardController::class, 'index'])->name('dashboard.staff');
-    // Route::get('/dashboard/staff-user', [UserControllerController::class, 'index'])->name('dashboard.staff-user');
-    // //Dashboard User
-    // Route::get('/dashboard/user', [DashboardController::class, 'index'])->name('dashboard.user');
 });
-// *END
