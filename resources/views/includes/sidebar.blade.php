@@ -56,7 +56,7 @@
                 <img src="{{ asset('assets/images/icons8-item-64.png') }}" alt="" width="20"
                     height="20"> &nbsp; Your Item
             </a>
-            <a href="" class="list-group-item list-group-item-action text-dark  border-bottom">
+            <a href="{{ route('dashboard.setting') }}" class="list-group-item list-group-item-action text-dark  border-bottom">
                 <img src="{{ asset('assets/images/icons8-setting-64.png') }}" alt="" width="20"
                     height="20"> &nbsp; Settings
             </a>

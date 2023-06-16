@@ -18,6 +18,14 @@
     <section class="section" id="product">
         <div class="container">
             <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading mb-3">
+                        <h2>Products Details</h2>
+                        <span>Check out all of our products.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-lg-8">
                     <div class="left-images">
                         <img src="{{ asset('storage/product/' . $products->image) }}" alt="..." height="700px" />

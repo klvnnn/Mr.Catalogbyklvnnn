@@ -23,7 +23,7 @@
                                     <a href="#" class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown">
                                         <img src="{{ asset('assets/images/user.png') }}" alt=""
                                             class="rounded-circle mr-2 profile-picture" />
-                                        <b style="color: black"> Hi, {{ Auth::user()->role->name }} </b>
+                                        <b style="color: black"> Hi, {{ Auth::user()->name }} </b>
                                     </a>
                                 </li>
                             </ul>

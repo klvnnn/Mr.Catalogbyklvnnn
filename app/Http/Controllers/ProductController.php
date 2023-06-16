@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Brands;
 use App\Models\Categories;
 use App\Models\Products;
+use App\Models\Status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -105,9 +106,10 @@ class ProductController extends Controller
         // ambil data brand dan category sebagai isian di pilihan (select)
         $brands = Brands::all();
         $categories = Categories::all();
+        $status = Status::all();
 
         // tampilkan view edit dan passing data product
-        return view('products.edit', compact('products', 'brands', 'categories'));
+        return view('products.edit', compact('products', 'brands', 'categories','status'));
     }
 
     /**
@@ -140,6 +142,7 @@ class ProductController extends Controller
                 'price' => $request->price,
                 'sale_price' => $request->sale_price,
                 'brands' => $request->brand,
+                'status' => $request->status,
                 'image' => $imageName,
             ]);
         } else {
@@ -150,6 +153,7 @@ class ProductController extends Controller
                 'price' => $request->price,
                 'sale_price' => $request->sale_price,
                 'brands' => $request->brand,
+                'status' => $request->status,
             ]);
         }
 

@@ -27,16 +27,17 @@ class LandingController extends Controller
     {
         // mengambil data category
         $categories = Categories::all();
+        $brands = Brands::all();
 
         if ($request->category) {
             $products = Products::with('category')->whereHas('category', function ($query) use ($request) {
-                $query->where('name', $request->category);
+                $query->where('name', $request->category)->where('status','=','Accepted');
             })->get();
         } else if ($request->min && $request->max) {
-            $products = Products::where('sale_price', '>=', $request->min)->where('sale_price', '<=', $request->max)->get();
+            $products = Products::where('sale_price', '>=', $request->min)->where('sale_price', '<=', $request->max)->where('status','=','Accepted')->get();
         } else {
             // mengambil 8 data produk secara acak
-            $products = Products::inRandomOrder()->limit(10)->get();
+            $products = Products::inRandomOrder()->limit(10)->where('status','=','Accepted')->get();
         }
 
         return view('landing.products', compact('products', 'categories'));

@@ -19,6 +19,7 @@
                         <th>Price</th>
                         <th>Sale Price</th>
                         <th>Image</th>
+                        <th>Status</th>
                         <th>Menu</th>
                     </tr>
                 </thead>
@@ -38,6 +39,12 @@
                                     <img src="{{ asset('storage/product/' . $product->image) }}" alt="{{ $product->name }}"
                                         style="max-width: 50px">
                                 @endif
+                            </td>
+                            <td>
+                                <span @if ($product->status == 'Accepted') @class(['badge', 'bg-success']) @endif
+                                    @if ($product->status == 'Pending') @class(['badge', 'bg-warning']) @endif
+                                    @if ($product->status == 'Rejected') @class(['badge', 'bg-danger']) @endif
+                                    >{{ $product->status }}</span>
                             </td>
                             <td>
                                 <form onsubmit="return confirm('Are you sure? ');"

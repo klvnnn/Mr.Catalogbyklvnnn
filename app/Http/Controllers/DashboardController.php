@@ -19,16 +19,10 @@ class DashboardController extends Controller
         } else {
             return view('dashboard.dashboard');
         }
-
-        // if (Auth::user()->role->name == 'Admin'){
-        //     return view('dashboard.admin.dashboard');
-        // }
-        // if (Auth::user()->role->name == 'Staff'){
-        //     return view('dashboard.staff.user');
-        // }
-        // if (Auth::user()->role->name == 'User'){
-        //     return view('dashboard.user.item');
-        // }
+    }
+    public function setting()
+    {   
+        return view('dashboard.user.setting');
     }
 
     /**

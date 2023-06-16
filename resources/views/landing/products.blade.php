@@ -66,10 +66,12 @@
                                     </div>
                                     <div class="down-content">
                                         <h4>{{ $product->name }}</h4>
+                                        <span>{{ $product->category->name }}</span>
+                                        <span>{{ $product->brands }}</span>
                                         <span
                                             class="text-decoration-line-through">Rp.{{ number_format($product->price, 0) }}</span>
                                         <span>Rp.{{ number_format($product->sale_price, 0) }}</span>
-                                        <ul class="stars mt-5 pt-3 me-1">
+                                        <ul class="stars mt-3 pt-3 me-1">
                                             <li><i class="fa fa-star"></i></li>
                                             <li><i class="fa fa-star"></i></li>
                                             <li><i class="fa fa-star"></i></li>
