@@ -68,6 +68,17 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
+                                <div class="form-group" v-if="is_store_open">
+                                    <label>Status</label>
+                                    <select name="status" class="form-control">
+                                        <option selected disabled>Status</option>
+                                        @foreach ($status as $s)
+                                            <option value="{{ $s->status }}">{{ $s->status}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Unggah Product</label>
                                     <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" accept=".jpg, .jpeg, .png., .webp" />

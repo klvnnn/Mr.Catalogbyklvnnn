@@ -35,8 +35,9 @@ class ProductController extends Controller
     {
         $brands = Brands::all();
         $categories = Categories::all();
+        $status = Status::all();
 
-        return view('products.create', compact('brands', 'categories'));
+        return view('products.create', compact('brands', 'categories', 'status'));
     }
     /**
      * Store a newly created resource in storage.
@@ -69,6 +70,7 @@ class ProductController extends Controller
             'brands' => $request->brands,
             'price' => $request->price,
             'sale_price' => $request->sale_price,
+            'status' => $request->status,
             'image' =>  $imageName,
         ]);
 
