@@ -18,7 +18,7 @@
                             <div class="col-md-6">
                                 <div class="form-group" v-if="is_store_open">
                                     <label>Category</label>
-                                    <select name="category" class="form-control">
+                                    <select name="category" class="form-control @error('category') is-invalid @enderror">
                                         <option selected disabled>Select Category</option>
                                         @foreach ($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -29,7 +29,7 @@
                             <div class="col-md-6">
                                 <div class="form-group" v-if="is_store_open">
                                     <label>Brands</label>
-                                    <select name="brand" class="form-control">
+                                    <select name="brands" class="form-control @error('brands') is-invalid @enderror">
                                         <option selected disabled>Select Brands</option>
                                         @foreach ($brands as $brand)
                                             <option value="{{ $brand->name }}">{{ $brand->name }}</option>
@@ -40,25 +40,40 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Product Name</label>
-                                    <input type="text" name="name" class="form-control" />
+                                    <input type="text" name="name"
+                                        class="form-control @error('name') is-invalid @enderror" />
+                                    @error('name')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group" v-if="is_store_open">
                                     <label>Price</label>
-                                    <input type="text" name="price" class="form-control" />
+                                    <input type="text" name="price"
+                                        class="form-control @error('price') is-invalid @enderror" />
+                                    @error('price')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group" v-if="is_store_open">
                                     <label>Sale Price</label>
-                                    <input type="text" name="sale_price" class="form-control" />
+                                    <input type="text" name="sale_price"
+                                        class="form-control @error('sale_price') is-invalid @enderror" />
+                                    @error('sale_price')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Unggah Product</label>
-                                    <input type="file" name="image" class="form-control" />
+                                    <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" accept=".jpg, .jpeg, .png., .webp" />
+                                    @error('image')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

@@ -7,6 +7,7 @@ use App\Models\Categories;
 use App\Models\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
@@ -44,6 +45,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'category' => 'required',
+            'name' => 'required|string|min:3',
+            'price' => 'required|integer',
+            'sale_price' => 'required|integer',
+            'brands' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:5048',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator->errors())->withInput();
+        }
         // ubah nama file
         $imageName = time() . '.' . $request->image->extension();
 

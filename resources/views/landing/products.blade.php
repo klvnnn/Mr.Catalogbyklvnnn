@@ -27,13 +27,13 @@
                 @csrf
                 <div class="row mt-3 mb-5">
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" placeholder="Lows Price" name="min" value="{{ old('min') }}">
+                        <input type="text" class="form-control" placeholder="Lowest Price" name="min" value="{{ old('min') }}">
                     </div>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" placeholder="Highs Price" name="max" value={{ old('max') }}>
+                        <input type="text" class="form-control" placeholder="Highest Price" name="max" value={{ old('max') }}>
                     </div>
                     <div class="col-sm-3">
-                        <button type="submit" class="btn btn-primary">Filter</button>
+                        <button type="submit" class="btn btn-dark">Filter</button>
                     </div>
                 </div>
             </form>
