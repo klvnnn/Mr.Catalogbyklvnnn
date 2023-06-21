@@ -58,7 +58,6 @@
                                             <ul>
                                                 <li><a href="{{ route('product.show', ['id' => $product->id]) }}"><i
                                                             class="fa fa-eye"></i></a></li>
-                                                <li><a href=""><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <img src="{{ asset('storage/product/' . $product->image) }}" alt="..."

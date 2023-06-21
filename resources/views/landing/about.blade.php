@@ -104,7 +104,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <img src="{{ asset('assets/images/klvn3.JPG') }}" width="370px" height="383px">
+                            <img src="{{ asset('assets/images/klvn3.jpg') }}" width="370px" height="383px">
                         </div>
                     </div>
                 </div>

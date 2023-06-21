@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
-        $table->string('name')->default('Admin');
+            $table->foreignId('users_id')->nullable()->constrained('users');
+            $table->string('name')->default('Admin');
             $table->timestamps();
         });
     }
