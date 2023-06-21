@@ -46,9 +46,8 @@
                             <p>Fit your outfit to fit your day, with mr.catalog products!</p>
                         </div>
                         <div class="quantity-content">
-                            <div class="total">
+                            <div class="total mb-3">
                                 <h4>Rp.{{ number_format($products->sale_price, 0) }}</h4>
-                                <div class="main-border-button"><a href="#">Add To Cart</a></div>
                             </div>
                         </div>
                     </div>
