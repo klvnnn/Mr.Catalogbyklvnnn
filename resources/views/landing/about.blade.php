@@ -124,20 +124,17 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="service-item">
-                        <h4>Synther Vaporware</h4>
-                        <img src="{{ asset('assets/images/service-01.jpg') }}" alt="">
+                        <img src="{{ asset('assets/images/gmx.jpg') }}" alt="" width="310" height="290">
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="service-item">
-                        <h4>Locavore Squidward</h4>
-                        <img src="{{ asset('assets/images/service-02.jpg') }}" alt="">
+                        <img src="{{ asset('assets/images/uniqlo.png') }}" alt="" width="310" height="290">
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="service-item">
-                        <h4>Health Gothfam</h4>
-                        <img src="{{ asset('assets/images/service-03.jpg') }}" alt="">
+                        <img src="{{ asset('assets/images/aerostreet.png') }}" alt="" width="310" height="290">
                     </div>
                 </div>
             </div>

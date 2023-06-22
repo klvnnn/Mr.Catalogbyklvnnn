@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/owl-carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/lightbox.css') }}">
 </head>
+
 <body>
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
@@ -53,10 +55,10 @@
                             </li>
                             <li class="scroll-to-section"><a href="#explore">Explore</a></li>
                             @auth
-                            <li class="scroll-to-section"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                                <li class="scroll-to-section"><a href="{{ route('dashboard') }}">Dashboard</a></li>
                             @endauth
                             @guest
-                            <li class="scroll-to-section"><a href="{{ route('login') }}">login</a></li>
+                                <li class="scroll-to-section"><a href="{{ route('login') }}">login</a></li>
                             @endguest
                         </ul>
                         <a class='menu-trigger'>
@@ -127,37 +129,35 @@
                         <div class="logo">
                             <img src="{{ asset('assets/images/white-logo.png') }}" alt="hexashop ecommerce templatemo">
                         </div>
-                        <ul>
-                            <li><a href="#">Kota Padang</a></li>
-                            <li><a href="#">kelvinawlsn@gmail.com</a></li>
-                            <li><a href="#">0895-6364-74850</a></li>
-                        </ul>
+                        <p class="text-white mb-2">Kota Padang</p>
+                        <p class="text-white mb-2">Kelvin Aulia Wilson</p>
+                        <p class="text-white mb-2">0895-6364-74850</p>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <h4>Shopping &amp; Categories</h4>
+
                     <ul>
-                        <li><a href="#men">Men’s Shopping</a></li>
-                        <li><a href="#women">Women’s Shopping</a></li>
+                        <li><a href="products?category=Men">Men’s Shopping</a></li>
+                        <li><a href="products?category=Women">Women’s Shopping</a></li>
+                        <li><a href="products?category=Kids">Kid’s Shopping</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
                     <h4>Useful Links</h4>
                     <ul>
-                        <li><a href="">Homepage</a></li>
-                        <li><a href="">About Us</a></li>
-                        <li><a href="">Help</a></li>
-                        <li><a href="">Contact Us</a></li>
+                        <li><a href="/">Homepage</a></li>
+                        <li><a href="about">About Us</a></li>
+                        <li><a href="products">Products</a></li>
+                        <li><a href="contact">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
                     <h4>Help &amp; Information</h4>
-                    <ul>
-                        <li><a href="">Help</a></li>
-                        <li><a href="">FAQ's</a></li>
-                        <li><a href="">Shipping</a></li>
-                        <li><a href="">Tracking ID</a></li>
-                    </ul>
+                    <p class="text-white mb-2">Help</p>
+                    <p class="text-white mb-2">FAQ's</p>
+                    <p class="text-white mb-2">Shipping</p>
+                    <p class="text-white mb-2">Tracking ID</p>
                 </div>
                 <div class="col-lg-12">
                     <div class="under-footer">
@@ -207,4 +207,5 @@
         });
     </script>
 </body>
+
 </html>

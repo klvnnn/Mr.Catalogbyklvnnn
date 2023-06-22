@@ -10,7 +10,7 @@
                                 <h4>Welcome to Mr Catalog</h4>
                                 <span>Ready to fit Your Outfit</span>
                                 <div class="main-border-button">
-                                    <a href="#male">Belanja Sekarang</a>
+                                    <a href="#male">Shop Now</a>
                                 </div>
                             </div>
                             <img src="{{ asset('assets/images/left-banner-image.jpg') }}" alt="">

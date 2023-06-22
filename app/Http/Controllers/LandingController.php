@@ -36,8 +36,8 @@ class LandingController extends Controller
         } else if ($request->min && $request->max) {
             $products = Products::where('sale_price', '>=', $request->min)->where('sale_price', '<=', $request->max)->where('status','=','Accepted')->get();
         } else {
-            // mengambil 8 data produk secara acak
-            $products = Products::inRandomOrder()->limit(10)->where('status','=','Accepted')->get();
+            // mengambil semua data produk
+            $products = Products::inRandomOrder()->where('status','=','Accepted')->get();
         }
 
         return view('landing.products', compact('products', 'categories'));
