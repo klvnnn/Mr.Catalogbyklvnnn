@@ -5,9 +5,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="inner-content">
+                    <div class="inner-content ms-5 ps-5 gap-2">
                         <h2>About Mr Catalog</h2>
-                        <span>Best, Modern &amp; Trends Products in The World</span>
+                        <span>Best, Models &amp; Quality Custom kit in The World</span>
                     </div>
                 </div>
             </div>
@@ -20,17 +20,22 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="left-image">
-                        <img src="{{ asset('assets/images/about-left-image.jpg') }}" alt="">
+                        <img src="{{ asset('assets/images/gallery2.jpg') }}" alt="" width="570px" height="450px">
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="right-content">
                         <h4>About Us</h4>
                         <span>Mr.Catalog since 2023 Created by Kelvin Aulia Wilson</span>
-                        <p>Stand tall in the job market with Mr.Catalog, the ultimate destination for creating polished and
-                            impactful resumes. Our website offers a seamless experience, empowering you to showcase your
-                            qualifications and achievements in a way that captivates potential employers. Build your winning
-                            resume today!</p>
+                        <p>Mr.Catalog Motorcycles is a motorcycle modification workshop. Apart from workshops, we also sell
+                            and develop custom parts and merchandise. Based on these two things we try to introduce a
+                            complete modification to his lifestyle. <br>
+                            Do you want to build a custom motorcycle? Prepare reference images of more than 3 images.
+                            Because if there's only one picture and you want your motorbike to be made like the picture you
+                            brought, sorry, that means you don't need our services. Basically, we do not only offer custom
+                            motorcycle manufacturing services, but improvise creative ideas in the manufacturing process.
+                            Furthermore, from the reference image, we will make a redesign which will become our benchmark
+                            in making your motorbike</p>
                         <ul>
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -51,7 +56,7 @@
                     <h2>Vision</h2>
                 </div>
                 <p class="mt-4">
-                    To be a leading company in the e-commerce industry by providing innovative and satisfying shopping
+                    To be the best industry by providing innovative and satisfying custom kit
                     experiences to customers around the world.</p>
             </center>
         </div>
@@ -87,7 +92,7 @@
         </div>
     </div>
     <!-- END
-    <!--Profile -->
+        <!--Profile -->
     <section class="our-team">
         <div class="container">
             <div class="row">
@@ -163,7 +168,7 @@
         </div>
     </section>
     <!-- END
-    <!-- ***** Our Team Area Starts ***** -->
+        <!-- ***** Our Team Area Starts ***** -->
     <section class="our-team">
         <div class="container">
             <div class="row">
@@ -238,23 +243,23 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-heading">
-                        <h2>Our Partner Clients</h2>
+                        <h2>Our Clients  Partner </h2>
                         <span>Details to details is what makes Mr.Catalog</span>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="service-item">
-                        <img src="{{ asset('assets/images/gmx.jpg') }}" alt="" width="310" height="290">
+                        <img src="{{ asset('assets/images/yammaha.png') }}" alt="" width="310" height="290">
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="service-item">
-                        <img src="{{ asset('assets/images/uniqlo.png') }}" alt="" width="310" height="290">
+                        <img src="{{ asset('assets/images/kawasaki.jpg') }}" alt="" width="310" height="290">
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="service-item">
-                        <img src="{{ asset('assets/images/aerostreet.png') }}" alt="" width="310"
+                        <img src="{{ asset('assets/images/honda.png') }}" alt="" width="310"
                             height="290">
                     </div>
                 </div>

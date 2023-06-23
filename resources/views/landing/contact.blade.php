@@ -30,6 +30,9 @@
                     <div class="section-heading">
                         <h2>Say Hello. Don't Be Shy!</h2>
                         <span>Details to details is what makes Mr.Catalog</span>
+                        <br>
+                        <span>Email: mrcatalog@gmail.com</span> &nbsp; 
+                        <span>Hp: 0895636474850</span>
                     </div>
                     <form id="contact" action="" method="post">
                         <div class="row">

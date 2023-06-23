@@ -652,7 +652,7 @@ banner
 
 .main-banner {
   border-bottom: 3px dotted #eee;
-  padding-top: 160px;
+  padding-top: 130px;
   padding-bottom: 30px;
 }
 
@@ -1251,7 +1251,7 @@ Explore
 
 #explore {
   padding-top: 90px;
-  padding-bottom: 90px;
+  padding-bottom: 70px;
   border-bottom: 3px dotted #eee;
 }
 
@@ -1576,7 +1576,7 @@ Products Page
 .page-heading {
   margin-top: 160px;
   margin-bottom: 30px;
-  background-image: url(../images/products-page-heading.jpg);
+  background-image: url(../images/product.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1914,7 +1914,7 @@ About Us Page
 .about-page-heading {
   margin-top: 160px;
   margin-bottom: 30px;
-  background-image: url(../images/about-us-page-heading.jpg);
+  background-image: url(../images/about.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;

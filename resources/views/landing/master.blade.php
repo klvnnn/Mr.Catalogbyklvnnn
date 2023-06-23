@@ -93,25 +93,23 @@
                     <div class="right-content">
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="leather">
-                                    <h4>Leather Bags</h4>
-                                    <span>Latest Collection</span>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
                                 <div class="first-image">
-                                    <img src="{{ asset('assets/images/explore-image-01.jpg') }}" alt="">
+                                    <img src="{{ asset('assets/images/item1.jpg') }}" alt="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="second-image">
-                                    <img src="{{ asset('assets/images/explore-image-02.jpg') }}" alt="">
+                                    <img src="{{ asset('assets/images/item2.jpg') }}" alt="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="types">
-                                    <h4>Different Types</h4>
-                                    <span>Over 304 Products</span>
+                                <div class="second-image">
+                                    <img src="{{ asset('assets/images/item3.jpg') }}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="second-image">
+                                    <img src="{{ asset('assets/images/item4.jpg') }}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -137,12 +135,12 @@
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <h4>Shopping &amp; Categories</h4>
+                    <h4>Custom &amp; Categories</h4>
 
                     <ul>
-                        <li><a href="products?category=Men">Men’s Shopping</a></li>
-                        <li><a href="products?category=Women">Women’s Shopping</a></li>
-                        <li><a href="products?category=Kids">Kid’s Shopping</a></li>
+                        <li><a href="products?category=Men">Matic</a></li>
+                        <li><a href="products?category=Women">Tracker</a></li>
+                        <li><a href="products?category=Kids">Chopper</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">

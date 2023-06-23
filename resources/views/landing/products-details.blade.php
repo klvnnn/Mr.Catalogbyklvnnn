@@ -43,7 +43,7 @@
                         <div class="quote">
                             <br>
                             <i class="fa fa-quote-left"></i>
-                            <p>Fit your outfit to fit your day, with mr.catalog products!</p>
+                            <p>Choose Motorcycles same like You!</p>
                         </div>
                         <div class="quantity-content">
                             <div class="total mb-3">
