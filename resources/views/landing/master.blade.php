@@ -51,6 +51,7 @@
                                     <li><a href="about">About Us</a></li>
                                     <li><a href="{{ route('landing.products') }}">Products</a></li>
                                     <li><a href="contact">Contact Us</a></li>
+                                    <li><a href="gallery">Gallery</a></li>
                                 </ul>
                             </li>
                             <li class="scroll-to-section"><a href="#explore">Explore</a></li>
@@ -131,6 +132,7 @@
                         </div>
                         <p class="text-white mb-2">Kota Padang</p>
                         <p class="text-white mb-2">Kelvin Aulia Wilson</p>
+                        <p class="text-white mb-2">kelvinawlsn@gmail.com</p>
                         <p class="text-white mb-2">0895-6364-74850</p>
                     </div>
                 </div>

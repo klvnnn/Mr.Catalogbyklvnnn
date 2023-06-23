@@ -34,6 +34,9 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('landing.contact');
 });
+Route::get('/gallery', function () {
+    return view('landing.gallery');
+});
 
 //Landing
 Route::get('/', [LandingController::class, 'index'])->name('landing.index');
