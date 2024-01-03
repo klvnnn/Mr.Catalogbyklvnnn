@@ -17,27 +17,27 @@ class BrandsSeeder extends Seeder
     {
         Brands::create(
             [
-                'name' => 'Clothes',
+                'name' => 'Yamaha',
             ],
         );
         Brands::create(
             [
-                'name' => 'T-shirt',
+                'name' => 'Kawasaki',
             ],
         );
         Brands::create(
             [
-                'name' => 'Accesories',
+                'name' => 'Honda',
             ],
         );
         Brands::create(
             [
-                'name' => 'Shoes',
+                'name' => 'Suzuki',
             ],
         );
         Brands::create(
             [
-                'name' => 'Pants',
+                'name' => 'Ducati',
             ],
         );
     }

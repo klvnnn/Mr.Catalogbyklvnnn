@@ -13,10 +13,10 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-1">
-                            <img src="{{ asset('assets/images/men-02.jpg') }}" alt="" width="44px"
+                            <img src="{{ asset('assets/images/abc.jpg') }}" alt="" width="44px"
                                 height="44px" />
                         </div>
-                        <div class="col-md-4">Men's Clothes</div>
+                        <div class="col-md-4">Yamaha</div>
                         <div class="col-md-3">Jhon Doe</div>
                         <div class="col-md-3">12 Januari, 2023</div>
                         <div class="col-md-1 d-none d-md-block">
@@ -29,10 +29,10 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-1">
-                            <img src="{{ asset('assets/images/women-01.jpg') }}" alt="" width="44px"
+                            <img src="{{ asset('assets/images/123.jpg') }}" alt="" width="44px"
                                 height="44px" />
                         </div>
-                        <div class="col-md-4">Women Clothes</div>
+                        <div class="col-md-4">Honda</div>
                         <div class="col-md-3">Masayoshi</div>
                         <div class="col-md-3">24 maret, 2023</div>
                         <div class="col-md-1 d-none d-md-block">
@@ -45,10 +45,10 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-1">
-                            <img src="{{ asset('assets/images/instagram-06.jpg') }}" alt="" width="44px"
+                            <img src="{{ asset('assets/images/binter.JPG') }}" alt="" width="44px"
                                 height="44px" />
                         </div>
-                        <div class="col-md-4">Trend Bag</div>
+                        <div class="col-md-4">Kawasaki</div>
                         <div class="col-md-3">Shayna</div>
                         <div class="col-md-3">11 May, 2023</div>
                         <div class="col-md-1 d-none d-md-block">

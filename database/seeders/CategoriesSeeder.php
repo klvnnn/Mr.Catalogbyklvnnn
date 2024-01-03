@@ -17,12 +17,12 @@ class CategoriesSeeder extends Seeder
     {
         Categories::create(
             [
-                'name' => 'Men',
+                'name' => 'Japstyle',
             ],
         );
         Categories::create(
             [
-                'name' => 'Women',
+                'name' => 'Bobber',
             ],
         );
     }
